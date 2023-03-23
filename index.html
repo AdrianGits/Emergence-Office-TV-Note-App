@@ -5,10 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergence Sydney Office TV Notes</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="default.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script>
+        function toggleTheme() {
+            var theme = document.getElementsByTagName('link')[0];
+            if (theme.getAttribute('href') == 'default.css') {
+                theme.setAttribute('href', 'light.css');
+            } else {
+                theme.setAttribute('href', 'default.css');
+            }
+        }
+    </script>
 </head>
 <body>
+    <div style="display: flex; justify-content: center; padding-top: 20px;">
+        <button onclick="toggleTheme()" style="border-radius: 5px; height: 3vh; background-color: skyblue;">-Switch Theme-</button>
+    </div>
     <div class="popup-box">
         <div class="popup">
             <div class="content">
@@ -36,7 +49,6 @@
             <p>Add a new note</p>
         </li>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

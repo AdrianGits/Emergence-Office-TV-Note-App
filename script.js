@@ -14,14 +14,16 @@ let isEdit = false, editId;
 addBox.addEventListener("click", () => {
     titleTag.focus();
     popupBox.classList.add("show");
+    addBtn.innerText = "Add Note";
+    popupTitle.innerText = "Add a new note";
 });
 
 closeIcon.addEventListener("click", () => {
     isEdit = false;
+    // addBtn.innerText = "Add Note";
+    // popupTitle.innerText = "Add a new note";
     titleTag.value = "";
     descTag.value = "";
-    addBtn.innerText = "Add Note";
-    popupTitle.innerText = "Add a new note";
     popupBox.classList.remove("show");
 });
 
@@ -35,19 +37,27 @@ function showNotes() {
         </div>
         <div class="bottom-content">
             <span>${note.date}</span>
-            <div class="settings">
-                <i onClick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                <ul class="menu">
-                    <li onclick="editNote(${index}, '${note.title}', '${note.description}' )"><i class="uil uil-pen"></i>Edit</li>
-                    <li onclick="deleteNote(${index})"><i class="uil uil-trash"></i>Delete</li>
-                </ul>
+            <div class="note-actions">
+                <span onclick="editNote(${index}, '${note.title}', '${note.description}' )"><i class="uil uil-pen"></i></span>
+                <span onclick="deleteNote(${index})"><i class="uil uil-trash"></i></span>
             </div>
+
+
         </div>
     </li>`;
     addBox.insertAdjacentHTML("afterend", liTag);
     });
 }
 showNotes();
+
+//Place between span note date and last div
+            // <div class="settings">
+            //     <i onClick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+            //     <ul class="menu">
+            //         <li onclick="editNote(${index}, '${note.title}', '${note.description}' )"><i class="uil uil-pen"></i>Edit</li>
+            //         <li onclick="deleteNote(${index})"><i class="uil uil-trash"></i>Delete</li>
+            //     </ul>
+            // </div>
 
 function showMenu(elem) {
     elem.parentElement.classList.add("show");
@@ -69,8 +79,9 @@ function editNote(noteId, title, desc) {
 }
 
 function deleteNote(noteId) {
-    let confirmDel = confirm("Are you sure you want to delete this note?");
-    if(!confirmDel) return;
+    // Delete note confirmation
+    // let confirmDel = confirm("Are you sure you want to delete this note?");
+    // if(!confirmDel) return;
     notes.splice(noteId, 1);
     localStorage.setItem("notes", JSON.stringify(notes));
     showNotes();

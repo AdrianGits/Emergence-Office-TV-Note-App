@@ -1,0 +1,251 @@
+@import url('https://fonts.cdnfonts.com/css/archia');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Archia', 'sans-serif';
+}
+
+body {
+    background-image: url("images/fp-bg-white.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 265px);
+    gap: 15px;
+}
+
+.wrapper li {
+    list-style: none;
+    height: 400px;
+    background: rgb(49, 49, 49);
+    border-radius: 5px;
+    padding: 15px 20px 20px;
+}
+
+.wrapper li:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+.add-box, .icon, .bottom-content, .settings .menu li, .popup, header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-box {
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-box .icon {
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #fff;
+    border: 2px dashed #fff;
+    justify-content: center; 
+}
+
+.add-box p {
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.note p {
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration-line: underline;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.note span {
+    color: #fff;
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    word-wrap: break-word;
+    height: auto;
+}
+
+.note .bottom-content {
+    padding-top: 10px;
+    border-top: 1px solid #cccc;
+}
+
+.wrapper .note {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; 
+}
+
+.bottom-content span {
+    color: #fff;
+    font-size: 12.5px;
+}
+
+.bottom-content .settings {
+    color: red;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.bottom-content .note-actions {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 25%;
+}
+
+.settings {
+    position: relative;
+}
+
+.settings .menu {
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+    padding: 5px 0;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 0 3px black;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.2s ease; 
+}
+
+.settings .menu li {
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0;
+    justify-content: flex-start;
+    padding: 17px 15px;
+}
+
+.settings.show .menu {
+    transform: scale(1);
+}
+
+.menu li:hover {
+    background: #f5f5f5;
+
+}
+
+.menu li i {
+    padding-right: 8px;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.popup-box .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 199;
+    max-width: 400px;
+    width: 100%;
+    transform: translate(-49.9%, -49.9%);
+    justify-content: center;
+}
+
+.popup-box, .popup-box .popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+} 
+
+.popup-box.show, .popup-box .popup {
+    opacity: 1;
+    pointer-events: auto;
+} 
+
+.popup .content {
+    width: calc(100% - 15px);
+    background: #fff;
+    border-radius: 5px;
+
+}
+
+.popup .content header {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 25px;
+}
+
+.content header p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.content header i {
+    cursor: pointer;
+}
+
+.content form {
+    margin: 15px 25px 35px;
+}
+
+.content form .row {
+    margin-bottom: 20px;
+}
+
+form .row label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.content form :where(input, textarea) {
+    width: 100%;
+    outline: none;
+    height: 50px;
+    font-size: 17px;
+    padding: 0 15px;
+    border-radius: 4px;
+    border: 1px solid #999;
+    margin-bottom: 30px;
+}
+
+.content form textarea {
+    height: 500px;
+    resize: none;
+    padding: 8px 15px;
+}
+
+.content form button {
+    width: 100%;
+    height: 50px;
+    background: green;
+    outline: none;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.note .details {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.uil {
+    padding: 6px;
+    font-size: 16px;
+}
